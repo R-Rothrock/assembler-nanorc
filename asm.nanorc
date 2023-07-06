@@ -1,0 +1,26 @@
+## NEW syntax highlighting for assembler
+
+syntax asm "\.(S|s|asm)$"
+magic "assembler source"
+comment ";"
+
+color red "\<[A-Z_]{2,}\>"
+color brightgreen "\.(data|subsection|text|bss)"
+color yellow "\(align|file|globl|global|hidden|section|size|type|weak)"
+color yellow "(ascii|asciz|byte|double|float|hword|int|long|short|single|struct|word|dd|db|dw)"
+color brightred "^[[:space:]]*[.0-9A-Za-z_]*:"
+color brightcyan "^[[:space:]]*#[[:space:]]*(define|undef|include|ifn?def|endif|elif|else|if|warning|error)"
+
+color lightblue "\(mov|lea|add|sub|mul|div|and|or|xor|syscall|int|cmp|test|jz|jnz|je|jne|js|jns|push|pop)"
+color brightgreen "\ (ah|al|ax|eax|rax|ch|cl|cx|ecx|rcx|dh|dl|dx|edx|rdx|bh|bl|bx|ebx|rbx|spl|sp|esp|rsp|bpl|bp|ebp|rbp|sil|si|esi|rsi|dil|di|edi|rdi)"
+
+# Strings
+color brightyellow "<[^= 	]*>" ""(\\.|[^"])*""
+
+# Comments (semicolon and C style)
+color brightblue ";.*"
+color brightblue "//.*"
+color brightblue start="/\*" end="\*/"
+
+# Trailing whitespace
+color ,green "[[:space:]]+$"
