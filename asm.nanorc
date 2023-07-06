@@ -11,11 +11,15 @@ color yellow "(ascii|asciz|byte|double|float|hword|int|long|short|single|struct|
 color brightred "^[[:space:]]*[.0-9A-Za-z_]*:"
 color brightcyan "^[[:space:]]*#[[:space:]]*(define|undef|include|ifn?def|endif|elif|else|if|warning|error)"
 
-color lightblue "\(mov|lea|add|sub|mul|div|and|or|xor|syscall|int|cmp|test|jz|jnz|je|jne|js|jns|push|pop)"
+color lightblue "\(rel|mov|lea|add|sub|mul|div|and|or|xor|syscall|int|cmp|test|jz|jnz|je|jne|js|jns|push|pop)"
 color brightgreen "\ (ah|al|ax|eax|rax|ch|cl|cx|ecx|rcx|dh|dl|dx|edx|rdx|bh|bl|bx|ebx|rbx|spl|sp|esp|rsp|bpl|bp|ebp|rbp|sil|si|esi|rsi|dil|di|edi|rdi)"
 
 # Strings
-color brightyellow "<[^= 	]*>" ""(\\.|[^"])*""
+color brightyellow start="\"" end="\""
+
+# Square brackets
+color brightyellow "\["
+color brightyellow "\]"
 
 # Comments (semicolon and C style)
 color brightblue ";.*"
